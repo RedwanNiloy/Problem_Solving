@@ -1,0 +1,41 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+
+int aa[100][100];
+int color[100];
+
+
+void dfs(int v){
+    color[v]=1;
+    cout<<v<<endl;
+    for(int i =0;i<100;i++)
+    {   if(aa[v][i]==1 && color[i]==1){
+        dfs(aa[v][i]);
+    }
+    }
+
+    color[v]=2;
+
+}
+
+
+
+main()
+{
+    int n,e;
+    cin>>n>>e;
+    for(int i =0;i<e;i++)
+    {
+        int p,k;
+        cin>>p>>k;
+        aa[p][k]=1;
+        aa[k][p]=1;
+    }
+    int v;
+    dfs(v);
+
+    
+
+}
